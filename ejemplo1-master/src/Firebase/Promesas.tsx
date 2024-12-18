@@ -23,7 +23,8 @@ export const ObtenerAlumnos = async()=>{
         correo:doc.data()['correo']
     }
     alumnos.push(alumno);
-});
+    });
+    return alumnos
     
     
 }
