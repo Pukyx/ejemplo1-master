@@ -1,5 +1,5 @@
 'use client'
-import { registrarAlumno } from '@/Firebase/promesas'
+import { registrarAlumno } from '@/Firebase/Promesas'
 import { iSAlumno } from '@/InitialStates/ISAlumno'
 import React, { useState } from 'react'
 
