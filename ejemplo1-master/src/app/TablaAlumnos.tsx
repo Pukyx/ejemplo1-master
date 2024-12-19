@@ -2,6 +2,9 @@
 import { ObtenerAlumnos } from "@/Firebase/Promesas"
 import { IAlumno } from "@/Interfaces/IAlumno"
 import React, { useEffect, useState } from "react"
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 
 export const TablaAlumnos = ()=>{
@@ -20,7 +23,7 @@ export const TablaAlumnos = ()=>{
     },[]) //es como un listenner, se ejecuta cuendo una variable tiene un cambio
     return(
         <>
-            <table>
+            <Table>
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -31,19 +34,44 @@ export const TablaAlumnos = ()=>{
                 </thead>
                 <tbody>
                     {
-                        lAlumnos.map((alumno)=>{
+                        lAlumnos.map((alumno,index)=>{
                             return(
-                                <tr>
+                                <tr key={index}>
                                     <td>{alumno.nombre}</td>
                                     <td>{alumno.apellido}</td>
                                     <td>{alumno.edad}</td>
                                     <td>{alumno.correo}</td>
+                                    <td>
+                                        <Button variant="warning">Modificar</Button>
+                                        <Button variant="danger">Eliminar</Button>
+                                    </td>
                                 </tr>
                             )
                         })
                     }
                 </tbody>
-            </table>
+            </Table>
+
+            {
+                lAlumnos.map((alumno,index)=>{
+                    return(
+                    <Card style={{ width: '18rem' }} key={index}>
+                    <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Body>
+                      <Card.Title>{alumno.nombre} {alumno.apellido}</Card.Title>
+                      <Card.Text>
+                        <h6>Datos</h6>
+                        <p>Edad:{alumno.edad}</p>
+                        <p>Correo:{alumno.correo}</p>
+                      </Card.Text>
+                      <Button variant="warning">Modificar</Button>
+                      <Button variant="danger">Eliminar</Button>
+                    </Card.Body>
+                  </Card>
+                  )
+                })
+            }
+
         </>
     )
 }

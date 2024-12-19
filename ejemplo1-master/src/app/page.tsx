@@ -3,10 +3,14 @@ import styles from "./page.module.css";
 import FormularioAlumno from "./FormularioAlumno";
 import FormularioAlumnoFinal from "./FormularioAlumnoFinal";
 import TablaAlumnos from "./TablaAlumnos";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Form from 'react-bootstrap/Form';
 
 export default function Home() {
   return (
     <>
+
+      <FormularioAlumnoFinal/>
       <TablaAlumnos/>
     </>
   );
